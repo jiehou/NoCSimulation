@@ -1,0 +1,28 @@
+
+        SystemC 2.3.1-Accellera --- Mar 10 2019 22:47:48
+        Copyright (c) 1996-2014 by all Contributors,
+        ALL RIGHTS RESERVED
+
+		Noxim - the NoC Simulator
+		(C) University of Catania
+
+#[D] NoximGlobalParams::faulty_routers.size(): 6
+Reset... done! Now running for 1000000 cycles...
+
+Warning: (W545) sc_stop has already been called
+In file: ../../../../src/sysc/kernel/sc_simcontext.cpp:1045
+In process: NoC.Tile[02][09].Router.txProcess @ 5995 ns
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+Noxim simulation completed.
+ ( 5995 cycles executed)
+% Communication time: 5895
+% Total received packets: 5004
+% Total received flits: 25003
+% Global average delay (cycles): 26.9702
+% Global average throughput (flits/cycle): 0.129667
+% Throughput (flits/cycle/IP): 0.000265989
+% Max delay (cycles): 234
+% Total energy (J): 7.05385e-06
+% Total sent flits: 28374
+% Simulation time (ms): 535
