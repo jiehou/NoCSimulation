@@ -78,9 +78,7 @@ void readMatrix(const string &file, vector<vector<T>> &matrix)
             {
                 istringstream iss(line);
                 while (iss >> element)
-                {
                     row.push_back(element);
-                }
                 matrix.push_back(row);
                 row.clear();
             }
@@ -94,15 +92,15 @@ void readMatrix(const string &file, vector<vector<T>> &matrix)
     }
 } 
 
-void readFaultCombinations(int state_id, 
-        vector<vector<int>> &router_combs)
+void readFaultCombinations(int state_id, vector<vector<int>> &router_combs)
 {
     // router combinations
     string file_routers = FAULT_FOLDER + to_string(state_id) + ".txt";
     readMatrix(file_routers, router_combs);
 }
 
-string createRouterComb(const vector<int>& routers) {
+string createRouterComb(const vector<int>& routers) 
+{
     string res = "";
     for(auto router : routers) res += to_string(router) + " ";
     return res;
@@ -148,9 +146,7 @@ bool readResult(Result &res, const string& result_file)
             // network saturated
             pos = line.find(NETWORK_SATURATED_LABEL);
             if(pos != string::npos)
-            {
                 return false; // result is wrong, drop it
-            }
             // global average delay
             pos = line .find(GLOBAL_AVERAGE_DELAY_LABEL);
             if(pos != string::npos)

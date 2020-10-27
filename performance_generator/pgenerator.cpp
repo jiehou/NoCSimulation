@@ -11,13 +11,13 @@ const int kNumLoops = 1000;
 
 void simulation(int begin, int end,  vector<double> &res)
 {
-    //cout << "[D] begin: " << begin << ", end: " << end << endl;
+    //cout << "#[D] begin: " << begin << ", end: " << end << endl;
     for(int state = begin; state <= end; ++state) //for(int state = 100; state <= 675; ++state)
 	{
 		vector<vector<int>> router_combs;
 		readFaultCombinations(state, router_combs);
 		int num_combs = router_combs.size();
-		//std::cout << "[D] state: " << state << ", num_combs: " << num_combs << std::endl; 
+		//std::cout << "#[D] state: " << state << ", num_combs: " << num_combs << std::endl; 
 		//1) load fault combs of routers
 		//2) generate simulation command
 		//3) start simulation and obtain result
@@ -108,12 +108,10 @@ int main(int argc, char* argv[]) {
 	parser.add_argument("--routing", "routing algorithm (xy and ftnf)", true);
 	parser.add_argument("--mode", "communication time (ct) or fault resilience (fr)", true);
 	parser.add_argument("--pir", "packet inject rate", true);
-	try
-	{
+	try {
 		parser.parse(argc, argv);
 	}
-	catch(const ArgumentParser::ArgumentNotFound& e)
-	{
+	catch(const ArgumentParser::ArgumentNotFound& e) {
 		std::cout << e.what() << '\n';
 		return 0;
 	}
@@ -135,7 +133,6 @@ int main(int argc, char* argv[]) {
 		std::cout << e << " ";
 	std::cout << "\n";
 	*/
-
     // create four threads
 	auto start = chrono::steady_clock::now();
     vector<double> res0;
@@ -151,7 +148,7 @@ int main(int argc, char* argv[]) {
 	t2.join();
 	t3.join();
 	auto end = chrono::steady_clock::now();
-	std::cout << "[I] total execution time (minute): " 
+	std::cout << "#[I] total execution time (minute): " 
 		      << chrono::duration_cast<chrono::minutes>(end - start).count() << "\n";
 	for(auto e : res0)
         std::cout << e << "\n";
